@@ -9,5 +9,3 @@
 
 This repository contains a collection of exercises to help you prepare for the Certified Kubernetes Application Developer (CKAD) exam. The exercises are designed to cover all the topics and competencies required for the CKAD certification.
 
-
-
