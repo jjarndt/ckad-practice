@@ -1,11 +1,9 @@
-## WORK IN PROGRESS
+## WORK IN PROGRESS !!
 
 # Certified Kubernetes Application Developer (CKAD) Exam Exercises
-<img src="https://github.com/jjarndt/ckad-practice/blob/master/blob/k8s-training.png" alt="Kubernetes Aufgaben">
-<br>
-
 <img src="https://training.linuxfoundation.org/wp-content/uploads/2019/03/kubernetes-ckad-color-300x294.png" alt="CKAD Logo" width="100" height="100">
-
+<br>
+<img src="https://github.com/jjarndt/ckad-practice/blob/master/blob/k8s-training.png" alt="Kubernetes Aufgaben">
 
 ## Overview
 
