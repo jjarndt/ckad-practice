@@ -4,8 +4,8 @@ Create a Deployment named `nginx-deployment` with the image `nginx:1.18` and 3 r
 
 The solution can be checked with the following kubectl command:
 ```bash
-kubectl rollout history deployment nginx-deployment
-kubectl get deployment nginx-deployment -o jsonpath='{.metadata.annotations}'
+kubectl describe deployment nginx-deployment | grep Replicas
+kubectl describe deployment nginx-deployment | grep Annotations
 ```
 
 <details>
@@ -42,7 +42,7 @@ Check the status of the `nginx-deployment`.
 
 The solution can be checked with the following kubectl command:
 ```bash
-kubectl rollout status deployment nginx-deployment
+kubectl get deployment nginx-deployment
 ```
 
 <details>
@@ -59,8 +59,8 @@ Update the `nginx-deployment` to use the image `nginx:1.19` and ensure the chang
 
 The solution can be checked with the following kubectl command:
 ```bash
-kubectl rollout history deployment nginx-deployment
-kubectl get deployment nginx-deployment -o jsonpath='{.spec.template.spec.containers[0].image}'
+kubectl describe deployment nginx-deployment | grep Image
+kubectl describe deployment nginx-deployment | grep Annotations
 ```
 
 <details>
@@ -68,7 +68,6 @@ kubectl get deployment nginx-deployment -o jsonpath='{.spec.template.spec.contai
 
 ```bash
 kubectl set image deployment/nginx-deployment nginx=nginx:1.19 --record
-
 kubectl annotate deployment nginx-deployment kubernetes.io/change-cause="Updated image to nginx:1.19"
 ```
 </details>
@@ -79,8 +78,7 @@ Pause the rollout of the `nginx-deployment`.
 
 The solution can be checked with the following kubectl command:
 ```bash
-kubectl rollout status deployment nginx-deployment
-kubectl rollout pause deployment nginx-deployment
+kubectl describe deployment nginx-deployment | grep Conditions
 ```
 
 <details>
@@ -97,8 +95,7 @@ Resume the rollout of the `nginx-deployment`.
 
 The solution can be checked with the following kubectl command:
 ```bash
-kubectl rollout status deployment nginx-deployment
-kubectl rollout resume deployment nginx-deployment
+kubectl describe deployment nginx-deployment | grep Conditions
 ```
 
 <details>
@@ -115,8 +112,7 @@ Undo the last rollout of the `nginx-deployment`.
 
 The solution can be checked with the following kubectl command:
 ```bash
-kubectl rollout history deployment nginx-deployment
-kubectl rollout undo deployment nginx-deployment
+kubectl describe deployment nginx-deployment | grep Annotations
 ```
 
 <details>
@@ -133,8 +129,7 @@ Undo the rollout of the `nginx-deployment` to the previous revision.
 
 The solution can be checked with the following kubectl command:
 ```bash
-kubectl rollout history deployment nginx-deployment
-kubectl rollout undo deployment nginx-deployment --to-revision=1
+kubectl describe deployment nginx-deployment | grep Revision
 ```
 
 <details>
