@@ -3,7 +3,7 @@
 # Certified Kubernetes Application Developer (CKAD) Exam Exercises
 <p align="center">
   <img src="https://training.linuxfoundation.org/wp-content/uploads/2019/03/kubernetes-ckad-color-300x294.png" alt="CKAD Logo" width="300" height="300">
-  <img src="https://github.com/jjarndt/ckad-practice/blob/master/blob/k8s-training.png" alt="Kubernetes Aufgaben" width="300" style="height: auto;">
+  <img src="https://github.com/jjarndt/ckad-practice/blob/master/blob/k8s-training.png" alt="Kubernetes Aufgaben" width="400" style="height: auto;">
 </p>
 
 ## Overview
