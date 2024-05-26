@@ -274,16 +274,11 @@ kubectl label pods -l version=v1 component=backend
 
 List all `nginx-deployment` pods that do not have the label `stage`.
 
-The solution can be checked with the following kubectl command:
-```bash
-kubectl get pods --selector=application=nginx,!stage
-```
-
 <details>
 <summary>Solution</summary>
 
 ```bash
-kubectl get pods --selector=application=nginx,!stage
+kubectl get pods --selector='application=nginx,!stage'
 ```
 </details>
 
@@ -310,7 +305,7 @@ Remove the label `role` from all pods with the value `webserver`.
 
 The solution can be checked with the following kubectl command:
 ```bash
-kubectl get pods --selector=role=webserver
+kubectl get pods --selector=role=webserver --show-labels
 ```
 
 <details>
@@ -359,23 +354,6 @@ kubectl label pods -l application=nginx priority=high
 
 ### Task 16:
 
-Overwrite the label `component` on the `busybox-deployment` pods to `module=core`.
-
-The solution can be checked with the following kubectl command:
-```bash
-kubectl get pods --selector=module=core
-```
-
-<details>
-<summary>Solution</summary>
-
-```bash
-kubectl label --overwrite pods -l component=backend component=module=core
-```
-</details>
-
-### Task 17:
-
 Update all pods in the `default` namespace with the label `env=dev`.
 
 The solution can be checked with the following kubectl command:
@@ -391,7 +369,7 @@ kubectl label pods --all env=dev
 ```
 </details>
 
-### Task 18:
+### Task 17:
 
 Update the label `stage` on the `busybox-deployment` pods to `status=active`, but only if the resource version is `1`.
 
@@ -408,7 +386,7 @@ kubectl label pods -l app=busybox stage=status=active --resource-version=1
 ```
 </details>
 
-### Task 19:
+### Task 18:
 
 Remove the label `project` from all `nginx-deployment` pods.
 
@@ -425,7 +403,7 @@ kubectl label pods -l application=nginx project-
 ```
 </details>
 
-### Task 20:
+### Task 19:
 
 Update the label `app` on all pods in the `default` namespace with a DNS subdomain prefix, such as `example.com/app=frontend`.
 
@@ -442,7 +420,7 @@ kubectl label pods --all example.com/app=frontend
 ```
 </details>
 
-### Task 21:
+### Task 20:
 
 Overwrite the label `department` on the `nginx-deployment` pods with `division=IT`, ensuring the existing resource version is used.
 
@@ -459,7 +437,7 @@ kubectl label --overwrite pods -l application=nginx department=division=IT
 ```
 </details>
 
-### Task 22:
+### Task 21:
 
 Remove the label `maintainer` from all pods, if it exists.
 
@@ -476,7 +454,7 @@ kubectl label pods --all maintainer-
 ```
 </details>
 
-### Task 23:
+### Task 22:
 
 Update the `nginx-deployment` pods with a label `version` having a value that includes underscores, such as `version=1_0`.
 
@@ -489,11 +467,18 @@ kubectl get pods --selector=version=1_0
 <summary>Solution</summary>
 
 ```bash
-kubectl label pods -l application=nginx version=1_0
+# Step 1: Label the existing pods and overwrite if necessary
+kubectl label pods -l application=nginx version=1_0 --overwrite
+
+# Step 2: Verify that the pods have the correct label
+kubectl get pods --selector=version=1_0
+
+# Step 3: Patch the deployment to add the version label to new pods
+kubectl patch deployment nginx-deployment -p '{"spec":{"template":{"metadata":{"labels":{"version":"1_0"}}}}}'
 ```
 </details>
 
-### Task 24:
+### Task 23:
 
 Update the label `priority` on `busybox-deployment` pods to `importance=critical`, ensuring it conforms to the maximum 63 characters limit.
 
