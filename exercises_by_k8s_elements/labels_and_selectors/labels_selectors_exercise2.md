@@ -85,6 +85,8 @@ kubectl label pods -l app=busybox tier-
 ```
 </details>
 
+Sure, here is the corrected solution in English:
+
 ### Task 3:
 
 Create a new label `environment=production` for the `nginx-deployment` pods and modify the label `app` to `application`.
@@ -99,61 +101,46 @@ kubectl get pods --selector=application=nginx
 <summary>Solution</summary>
 
 ```bash
+# Step 1: Add the label environment=production to all pods with the label app=nginx
 kubectl label pods -l app=nginx environment=production
+
+# Step 2: Remove the label app from these pods
 kubectl label pods -l app=nginx app-
+
+# Step 3: Add the label application=nginx to all pods with the label environment=production
 kubectl label pods -l environment=production application=nginx
 ```
+
+
+### Explanation:
+
+- **Step 1:** Adds the label `environment=production` to all pods that currently have the label `app=nginx`.
+- **Step 2:** Removes the `app` label from these pods.
+- **Step 3:** Adds the label `application=nginx` to all pods that have the label `environment=production`.
+
+By following these steps, you ensure that all pods that originally had the label `app=nginx` now have the labels `environment=production` and `application=nginx`.
 </details>
 
 ### Task 4:
 
-Apply a constraint to the `nginx-deployment` pods to ensure the label keys conform to DNS subdomain names and values contain only lowercase letters, digits, and `-` or `.` characters.
-
-The solution can be checked with the following kubectl command:
-```bash
-kubectl get pods --selector=application=nginx
-```
+Use set-based and equality-based selectors to list the `nginx-deployment` pods with `environment=production` and `application` in (`nginx`, `busybox`).
 
 <details>
 <summary>Solution</summary>
 
-```yaml
-# Edit the pod template of the deployment
-kubectl edit deployment nginx-deployment
-```
-Ensure the labels are compliant with the constraints:
-```yaml
-metadata:
-  labels:
-    application: nginx
-    environment: production
+```bash
+kubectl get pods --selector='environment=production,application in (nginx,busybox)'
 ```
 </details>
 
 ### Task 5:
 
-Use set-based and equality-based selectors to list the `nginx-deployment` pods with `environment=production` and `application` in (`nginx`, `busybox`).
-
-The solution can be checked with the following kubectl command:
-```bash
-kubectl get pods --selector=environment=production,application in (nginx,busybox)
-```
-
-<details>
-<summary>Solution</summary>
-
-```bash
-kubectl get pods --selector=environment=production,application in (nginx,busybox)
-```
-</details>
-
-### Task 6:
-
 Demonstrate the application of labels and selectors in practice by creating a Service that selects the `nginx-deployment` pods.
+Service name: `nginx-service`
 
 The solution can be checked with the following kubectl command:
 ```bash
-kubectl get svc --selector=application=nginx
+kubectl get svc nginx-service -o jsonpath='{.spec.selector}'
 ```
 
 <details>
@@ -190,7 +177,7 @@ EOF
 ```
 </details>
 
-### Task 7:
+### Task 6:
 
 Label the nodes with a well-known label `disktype=ssd` and taint them with `key=value:NoSchedule`.
 
@@ -211,7 +198,7 @@ kubectl taint nodes <node-name> key=value:NoSchedule
 ```
 </details>
 
-### Task 8:
+### Task 7:
 
 Add a new label `stage=testing` to the `busybox-deployment` pods.
 
@@ -228,7 +215,7 @@ kubectl label pods -l app=busybox stage=testing
 ```
 </details>
 
-### Task 9:
+### Task 8:
 
 Change the label `app` of `nginx-deployment` pods to `role=webserver`.
 
@@ -246,7 +233,7 @@ kubectl label pods -l role=webserver app-
 ```
 </details>
 
-### Task 10:
+### Task 9:
 
 Remove the `environment` label from all pods in the `nginx-deployment`.
 
@@ -263,7 +250,7 @@ kubectl label pods -l application=nginx environment-
 ```
 </details>
 
-### Task 11:
+### Task 10:
 
 Create a label `version=v1` for all `busybox-deployment` pods and modify the label `tier` to `component`.
 
@@ -283,7 +270,7 @@ kubectl label pods -l version=v1 component=backend
 ```
 </details>
 
-### Task 12:
+### Task 11:
 
 List all `nginx-deployment` pods that do not have the label `stage`.
 
@@ -300,7 +287,7 @@ kubectl get pods --selector=application=nginx,!stage
 ```
 </details>
 
-### Task 13:
+### Task 12:
 
 Add a label `maintainer=devops` to all pods in the namespace `default`.
 
@@ -317,7 +304,7 @@ kubectl label pods --all maintainer=devops
 ```
 </details>
 
-### Task 14:
+### Task 13:
 
 Remove the label `role` from all pods with the value `webserver`.
 
@@ -334,7 +321,7 @@ kubectl label pods -l role=webserver role-
 ```
 </details>
 
-### Task 15:
+### Task 14:
 
 Label the `nginx-deployment` pods with `department=IT` and `project=website`.
 
@@ -353,7 +340,7 @@ kubectl label pods -l application=nginx project=website
 ```
 </details>
 
-### Task 16:
+### Task 15:
 
 Update the label on the `nginx-deployment` pods with `priority=high`.
 
@@ -370,7 +357,7 @@ kubectl label pods -l application=nginx priority=high
 ```
 </details>
 
-### Task 17:
+### Task 16:
 
 Overwrite the label `component` on the `busybox-deployment` pods to `module=core`.
 
@@ -387,7 +374,7 @@ kubectl label --overwrite pods -l component=backend component=module=core
 ```
 </details>
 
-### Task 18:
+### Task 17:
 
 Update all pods in the `default` namespace with the label `env=dev`.
 
@@ -404,7 +391,7 @@ kubectl label pods --all env=dev
 ```
 </details>
 
-### Task 19:
+### Task 18:
 
 Update the label `stage` on the `busybox-deployment` pods to `status=active`, but only if the resource version is `1`.
 
@@ -421,7 +408,7 @@ kubectl label pods -l app=busybox stage=status=active --resource-version=1
 ```
 </details>
 
-### Task 20:
+### Task 19:
 
 Remove the label `project` from all `nginx-deployment` pods.
 
@@ -438,7 +425,7 @@ kubectl label pods -l application=nginx project-
 ```
 </details>
 
-### Task 21:
+### Task 20:
 
 Update the label `app` on all pods in the `default` namespace with a DNS subdomain prefix, such as `example.com/app=frontend`.
 
@@ -455,7 +442,7 @@ kubectl label pods --all example.com/app=frontend
 ```
 </details>
 
-### Task 22:
+### Task 21:
 
 Overwrite the label `department` on the `nginx-deployment` pods with `division=IT`, ensuring the existing resource version is used.
 
@@ -472,7 +459,7 @@ kubectl label --overwrite pods -l application=nginx department=division=IT
 ```
 </details>
 
-### Task 23:
+### Task 22:
 
 Remove the label `maintainer` from all pods, if it exists.
 
@@ -489,7 +476,7 @@ kubectl label pods --all maintainer-
 ```
 </details>
 
-### Task 24:
+### Task 23:
 
 Update the `nginx-deployment` pods with a label `version` having a value that includes underscores, such as `version=1_0`.
 
@@ -506,7 +493,7 @@ kubectl label pods -l application=nginx version=1_0
 ```
 </details>
 
-### Task 25:
+### Task 24:
 
 Update the label `priority` on `busybox-deployment` pods to `importance=critical`, ensuring it conforms to the maximum 63 characters limit.
 
