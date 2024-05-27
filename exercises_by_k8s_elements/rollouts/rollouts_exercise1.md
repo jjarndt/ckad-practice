@@ -38,11 +38,6 @@ EOF
 
 Check the status of the `my-deployment`.
 
-The solution can be checked with the following kubectl command:
-```bash
-kubectl rollout status deployment/my-deployment | grep "successfully rolled out"
-```
-
 <details>
 <summary>Solution</summary>
 
@@ -54,11 +49,6 @@ kubectl rollout status deployment/my-deployment
 ### Task 3:
 
 Check the rollout history of the `my-deployment`.
-
-The solution can be checked with the following kubectl command:
-```bash
-kubectl rollout history deployment/my-deployment | grep "REVISION"
-```
 
 <details>
 <summary>Solution</summary>
@@ -106,11 +96,6 @@ kubectl rollout undo deployment/my-deployment
 
 Pause the rollout of `my-deployment`.
 
-The solution can be checked with the following kubectl command:
-```bash
-kubectl rollout status deployment/my-deployment | grep "paused"
-```
-
 <details>
 <summary>Solution</summary>
 
@@ -123,10 +108,6 @@ kubectl rollout pause deployment/my-deployment
 
 Resume the rollout of `my-deployment`.
 
-The solution can be checked with the following kubectl command:
-```bash
-kubectl rollout status deployment/my-deployment | grep "successfully rolled out"
-```
 
 <details>
 <summary>Solution</summary>
@@ -139,11 +120,6 @@ kubectl rollout resume deployment/my-deployment
 ### Task 8:
 
 Check the annotation for the change-cause field in the `my-deployment`.
-
-The solution can be checked with the following kubectl command:
-```bash
-kubectl annotate deployment my-deployment | grep "change-cause"
-```
 
 <details>
 <summary>Solution</summary>
