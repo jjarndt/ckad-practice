@@ -38,4 +38,55 @@ the last failed Pod
 To reconfigure the job retention history limits, set new values for the spec.successfulJobsHistoryLimit and spec.failedJobsHistoryLimit attributes
 </details>
 
+<details>
+<summary>What template does a CronJob contain by design?</summary>
+A Template for new Jobs
+</details>
+
+<details>
+<summary>Do changes to an existing CronJob apply to Jobs that have already started?</summary>
+The CronJob does not update existing Jobs, even if those remain running
+</details>
+
+<details>
+<summary>How often does a CronJob create a Job object?</summary>
+A CronJob creates a Job object approximately once per execution time of its schedule
+</details>
+
+<details>
+<summary>Why might the scheduling of Job creation by a CronJob be approximate?</summary>
+The scheduling is approximate because there are certain circumstances where two Jobs might be created, or no Job might be created. Kubernetes tries to avoid those situations, but does not completely prevent them
+</details>
+
+<details>
+<summary>What should the Jobs defined by a CronJob be to handle approximate scheduling?</summary>
+The Jobs that you define should be idempotent.
+</details>
+
+<details>
+<summary>What do the .spec.successfulJobsHistoryLimit and .spec.failedJobsHistoryLimit fields specify?</summary>
+Specify how many completed and failed Jobs should be kept. Both fields are optional.
+</details>
+
+<details>
+<summary>What is the default value of .spec.successfulJobsHistoryLimit?</summary>
+3
+</details>
+
+<details>
+<summary>What happens if the .spec.successfulJobsHistoryLimit field is set to 0?</summary>
+Setting this field to 0 will not keep any successful jobs.
+</details>
+
+<details>
+<summary>What is the default value of .spec.failedJobsHistoryLimit?</summary>
+1
+</details>
+
+<details>
+<summary>What happens if the .spec.failedJobsHistoryLimit field is set to 0?</summary>
+Setting this field to 0 will not keep any failed jobs.
+</details>
+
+
 
