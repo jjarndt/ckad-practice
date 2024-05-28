@@ -105,7 +105,7 @@ Update all deployments' nginx container image to 'nginx:1.19.0' across all names
 <summary>Solution</summary>
 
 ```bash
-kubectl set image deployments nginx=nginx:1.19.0 --all --all-namespaces
+kubectl set image deployments nginx=nginx:1.19.0 --all-namespaces
 kubectl get deployments --all-namespaces -o wide
 ```
 </details>
@@ -205,6 +205,7 @@ kubectl set image statefulset/storage *=alpine:3.12 -n storage
 kubectl rollout restart statefulset/storage -n storage
 ```
 </details>
+
 ### Task 1:
 
 Set the nginx container image in the deployment `webapp` to 'nginx:1.19.0', then get the details of the deployment
