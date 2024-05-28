@@ -1,4 +1,4 @@
-### WORK IN PROGRESS! (Latest: May 2024)
+### CURRENTLY WORK IN PROGRESS!
 
 # Certified Kubernetes Application Developer (CKAD) Practice Exercises
 <p align="center">
@@ -16,24 +16,6 @@ The exercises in this repository are structured to provide practical hands-on ex
 
 By engaging with these exercises, you'll not only prepare yourself for the CKAD exam but also gain a deeper and more practical understanding of Kubernetes, making you a more proficient developer in real-world scenarios. Happy practicing!
 
-## Curriculum Overview
-
-### Application Design and Build (20%)
-- Exercises: 28
-
-### Application Deployment (20%)
-- Exercises: [To be added]
-
-### Application Observability and Maintenance (15%)
-- Exercises: 1
-
-### Application Environment, Configuration, and Security (25%)
-- Exercises: [To be added]
-
-### Services and Networking (20%)
-- Exercises: [To be added]
-
 ### Contributing
 
 Contributions to this repository are welcomed. Whether you're correcting a typo, adding a new exercise, or refining an existing one, your help is appreciated. Please follow the standard fork-and-pull request workflow to submit your improvements.
-
