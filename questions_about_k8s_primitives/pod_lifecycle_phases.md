@@ -17,17 +17,22 @@ Pending
 
 <details>
 <summary>A misconfiguration in the container, such as an incorrect environment variable or command.</summary>
-Running
+Pending or Failed
 </details>
 
 <details>
 <summary>A dependency service is not available.</summary>
 Running
+
+Expl:
+A dependency service being unavailable typically means the container is running but unable to perform its intended functions because it cannot reach a required service. Therefore, the Pod itself might be in the Running phase, but experiencing issues.
 </details>
 
 <details>
 <summary>Resource limits (CPU/memory) are being exceeded, causing restarts.</summary>
 Running
+
+Resource limits being exceeded, causing restarts, can indeed happen while the Pod is in the Running phase. However, if the resource limits are continuously exceeded, the Pod might go into a CrashLoopBackOff state, which is still technically within the Running phase as it involves repeated restarts.
 </details>
 
 <details>
