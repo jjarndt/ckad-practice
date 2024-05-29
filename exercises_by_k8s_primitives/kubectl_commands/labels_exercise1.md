@@ -148,7 +148,8 @@ Update a pod named `cache` only if it matches the label selector `app=redis` wit
 <summary>Solution</summary>
 
 ```bash
-kubectl label pods cache tier=db --selector=app=redis
+kubectl label pod cache tier=db -l app=redis
+
 ```
 </details>
 

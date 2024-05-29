@@ -129,8 +129,8 @@ Print the result (in yaml format) of updating the nginx container image in a loc
 <summary>Solution</summary>
 
 ```bash
-kubectl set image -f my-deployment.yaml nginx=nginx:1.19.0 --local -o yaml
-kubectl apply --dry-run=client -f my-deployment.yaml
+kubectl set image -f my-deployment.yaml nginx=nginx:1.19.0 --local -o yaml > updated-deployment.yaml
+kubectl apply --dry-run=client -f updated-deployment.yaml
 ```
 </details>
 

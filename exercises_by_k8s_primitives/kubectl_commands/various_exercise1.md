@@ -38,13 +38,13 @@ Update pod `backend` with the label `version` and the value `v2`.
 <summary>Solution</summary>
 
 ```bash
-kubectl label pods backend version=v2
+kubectl label pod backend version=v2
 ```
 </details>
 
 ### Task 5:
 
-Update pod `frontend` with the label `app=frontend` and set the environment variable `ENV` to `production`.
+Update pods `frontend` with the label `app=frontend` and set the environment variable `ENV` to `production`.
 <details>
 <summary>Solution</summary>
 
@@ -107,6 +107,7 @@ Scale the deployment `api-server` to `10` replicas and get the logs from one of 
 
 ```bash
 kubectl scale deployment api-server --replicas=10
-kubectl logs $(kubectl get pods -l app=api-server -o jsonpath='{.items[0].metadata.name}')
+kubectl get pods -l app=api-server
+kubectl logs <pod-name>
 ```
 </details>
