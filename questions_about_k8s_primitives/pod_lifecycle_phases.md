@@ -73,6 +73,10 @@ Unknown
 <details>
 <summary>The container image specified in the Pod does not exist in the container registry.</summary>
 Pending
+
+When a Pod is in the "Pending" phase, it means that the Pod has been accepted by the Kubernetes system, but one or more of the containers within it have not yet been started. This can be due to various reasons, such as scheduling issues or image pulling issues.
+
+In this specific case, the reason the Pod is in the "Pending" phase is that the container image specified in the Pod does not exist in the container registry. Kubernetes will keep the Pod in the "Pending" state until it can successfully pull the container image. If the image does not exist, the Pod will remain pending as Kubernetes continues to attempt to pull the image.
 </details>
 
 <details>
