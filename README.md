@@ -1,4 +1,4 @@
-### CURRENTLY WORK IN PROGRESS!
+### Summer Break until Mid-June 2024 - New Exercises Coming Soon!
 
 # Certified Kubernetes Application Developer (CKAD) Practice Exercises
 <p align="center">
