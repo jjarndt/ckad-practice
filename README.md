@@ -19,7 +19,7 @@ This repository contains a collection of exercises designed to help you prepare 
 The tasks are divided into two main areas:
 
 1. **Curriculum-Focused Exercises:** These tasks closely follow the official exam curriculum and are specifically tailored to prepare you for the CKAD exam.
-2. **Focussed Exercises for Kubernetes Primitives:** These tasks focus on the Kubernetes primitives relevant to the exam, aiming to train specific "muscle memory."
+2. **General Exercises for Kubernetes Primitives:** These tasks cover fundamental concepts that appear across all topics in the curriculum, aiming to train specific "muscle memory."
 
 In creating these exercises, I closely follow the book by Benjamin Muschko, [Certified Kubernetes Application Developer (CKAD) Study Guide](https://learning.oreilly.com/library/view/certified-kubernetes-application/9781098152857/). This serves as a solid foundation to determine which topics are relevant and which are not.
 
