@@ -3,7 +3,7 @@
 Create a Deployment named `nginx-deployment` in the `default` namespace with the following specifications:
 - Image: `nginx:1.17.4`
 - Replicas: 3
-- Container Port: 80
+- Container Port: 80 
 
 The solution can be checked with the following kubectl command:
 ```bash
