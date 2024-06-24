@@ -1,5 +1,3 @@
-### Summer Break until Mid-June 2024 - New Exercises Coming Soon!
-
 # Certified Kubernetes Application Developer (CKAD) Practice Exercises
 <p align="center">
   <img src="https://training.linuxfoundation.org/wp-content/uploads/2019/03/kubernetes-ckad-color-300x294.png" alt="CKAD Logo" width="300" height="300">
